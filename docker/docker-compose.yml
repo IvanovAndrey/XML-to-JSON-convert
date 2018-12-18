@@ -1,0 +1,8 @@
+version: "3.4"
+
+services:
+  course-work:
+    container_name: course-work
+    image: com.course-work.example/course-work
+    ports:
+      - "8080:8080"

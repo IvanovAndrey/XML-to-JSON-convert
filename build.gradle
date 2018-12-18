@@ -1,0 +1,61 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'se.transmode.gradle:gradle-docker:1.2'
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'docker'
+
+group = 'com.course-work.example'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile group: 'org.json', name: 'json', version: '20180813'
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+task runDocker(type: Exec) {
+	def command = "docker-compose up -d"
+
+	doFirst {
+		println command
+	}
+
+	workingDir rootDir.path + '/docker'
+	commandLine command.split()
+}
+
+task buildDocker(type: Docker) {
+	mustRunAfter "build"
+	dockerfile = file('src/docker/Dockerfile')
+	tagVersion = 'latest'
+
+	doFirst {
+		println "Starting build docker"
+		copy {
+			from jar
+			into "${stageDir}"
+		}
+	}
+
+	doLast {
+		delete(stageDir, project.buildDir.path + '/distribution')
+	}
+}
