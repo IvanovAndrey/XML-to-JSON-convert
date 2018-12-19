@@ -35,3 +35,12 @@ Run application with task
 
 `$ ./gradle runDocker`
 
+### HTTP-client 
+
+You can use [Postman HTTP-client](https://www.getpostman.com/) for this case. Form a request in a way it formed in figure below:
+
+![Request](/figs/request.jpeg)
+
+Response should looks like:
+
+![Response](/figs/response.jpeg)
