@@ -39,8 +39,8 @@ Run application with task
 
 You can use [Postman HTTP-client](https://www.getpostman.com/) for this case. Form a request in a way it formed in figure below:
 
-![Request](/figs/request.jpeg)
+![Request](/figs/request.jpg)
 
 Response should looks like:
 
-![Response](/figs/response.jpeg)
+![Response](/figs/response.jpg)
