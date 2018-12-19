@@ -1,2 +1,37 @@
 # XML-to-JSON-convert
-На данный момент у меня  проблемы с программой, с помощью которой я отправлял POST запросы (Postman). Я доделаю файл Readme как только решу их, либо как только разберусь с тем, как их отправлять через браузер, чтобы можно было вставить скрины.
+ XML-to-JSON-convert service. It's written in Java with use of SpringBoot framework.
+ ## How it works
+ 
+ ```
+ Method:          POST
+  Path:            /course-work
+  Content-Type:    row/form-data
+  -------------------------------------------------------------------
+  Content-Disposition: form-data; name="xml"; filename="TestXML.xml"
+  Content-Type: text/plain
+
+  content of TestXML.xml.
+  -------------------------------------------------------------------
+  and sends responses of the following form:
+
+  Status-Code:     200 (Accepted)
+  Content-Type:    json;charset=UTF-8`
+```
+## Usage
+
+### Building 
+
+To build this you need import project in your IDE
+
+Build with gradle command 
+ 
+`$ ./gradle build`
+
+Build docker with task 
+
+`$ ./gradle buildDocker`
+
+Run application with task 
+
+`$ ./gradle runDocker`
+
