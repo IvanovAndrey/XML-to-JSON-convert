@@ -23,6 +23,8 @@
 
 To build this you need import project in your IDE
 
+Then build the project in IDE 
+
 Build with gradle command 
  
 `$ ./gradle build`
