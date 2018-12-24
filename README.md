@@ -27,15 +27,15 @@ Then build the project in IDE
 
 Build with gradle command 
  
-`$ ./gradle build`
+`gradle build`
 
 Build docker with task 
 
-`$ ./gradle buildDocker`
+`gradle buildDocker`
 
 Run application with task 
 
-`$ ./gradle runDocker`
+`gradle runDocker`
 
 ### HTTP-client 
 
